@@ -9,11 +9,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional(readOnly = true)
-public class EnrollStudentInCourseService {
+public class EnrollStudentService {
 
     private final StudentCourseRepository studentCourseRepository;
 
-    public EnrollStudentInCourseService(StudentCourseRepository studentCourseRepository) {
+    public EnrollStudentService(StudentCourseRepository studentCourseRepository) {
         this.studentCourseRepository = studentCourseRepository;
     }
 

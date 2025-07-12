@@ -3,9 +3,8 @@ package com.brucemelo.springcucumber.steps;
 import com.brucemelo.springcucumber.domain.Course;
 import com.brucemelo.springcucumber.domain.CourseRepository;
 import com.brucemelo.springcucumber.domain.Student;
-import com.brucemelo.springcucumber.domain.StudentRepository;
 import com.brucemelo.springcucumber.service.CourseService;
-import com.brucemelo.springcucumber.service.EnrollStudentInCourseService;
+import com.brucemelo.springcucumber.service.EnrollStudentService;
 import com.brucemelo.springcucumber.service.StudentService;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.Before;
@@ -22,19 +21,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class CourseStepDefinitions {
+public class CourseSteps {
 
     private final CourseRepository courseRepository;
-    private final StudentRepository studentRepository;
     private final CourseService courseService;
     private final StudentService studentService;
-    private final EnrollStudentInCourseService enrollStudentInCourseService;
+    private final EnrollStudentService enrollStudentInCourseService;
 
-    public CourseStepDefinitions(CourseRepository courseRepository, StudentRepository studentRepository, CourseService courseService,
-                                 StudentService studentService,
-                                 EnrollStudentInCourseService enrollStudentInCourseService) {
+    public CourseSteps(CourseRepository courseRepository,
+                       CourseService courseService,
+                       StudentService studentService,
+                       EnrollStudentService enrollStudentInCourseService) {
         this.courseRepository = courseRepository;
-        this.studentRepository = studentRepository;
         this.courseService = courseService;
         this.studentService = studentService;
         this.enrollStudentInCourseService = enrollStudentInCourseService;
@@ -45,8 +43,6 @@ public class CourseStepDefinitions {
     @Before
     public void cleanUp() {
         courseRepository.deleteAll();
-//        courseService.findAllCourses().forEach(course ->
-//                courseService.deleteCourse(course.getId()));
     }
 
     @Given("the following courses exist:")

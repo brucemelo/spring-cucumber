@@ -28,6 +28,7 @@ dependencies {
     compileOnly("org.projectlombok:lombok")
     runtimeOnly("com.h2database:h2")
     annotationProcessor("org.projectlombok:lombok")
+    annotationProcessor("org.hibernate.orm:hibernate-jpamodelgen")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.cucumber:cucumber-java:$cucumberVersion")
     testImplementation("io.cucumber:cucumber-spring:$cucumberVersion")

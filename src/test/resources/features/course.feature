@@ -9,9 +9,9 @@ Feature: Course Management
       | Introduction to Java    | CS101   | 3       |
       | Advanced Programming    | CS201   | 4       |
     And the following students exist:
-      | name          | email                  |
-      | John Doe      | john.doe@example.com   |
-      | Jane Smith    | jane.smith@example.com |
+      | name          | email                   |
+      | Bruce Melo    | bruce.melo@example.com  |
+      | Maria Souza   | maria.souza@example.com |
 
   Scenario: Create a new course
     When I create a course with name "Data Structures", code "CS301" and credits 4
@@ -25,10 +25,10 @@ Feature: Course Management
     And the course should have name "Introduction to Java"
 
   Scenario: Enroll student in a course
-    When I enroll student "john.doe@example.com" in course "CS101"
-    Then student "john.doe@example.com" should be enrolled in course "CS101"
+    When I enroll student "bruce.melo@example.com" in course "CS101"
+    Then student "bruce.melo@example.com" should be enrolled in course "CS101"
     
   Scenario: Student enrolls in multiple courses
-    When I enroll student "jane.smith@example.com" in course "CS101"
-    And I enroll student "jane.smith@example.com" in course "CS201"
-    Then student "jane.smith@example.com" should be enrolled in 2 courses
+    When I enroll student "maria.souza@example.com" in course "CS101"
+    And I enroll student "maria.souza@example.com" in course "CS201"
+    Then student "maria.souza@example.com" should be enrolled in 2 courses

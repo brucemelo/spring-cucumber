@@ -8,6 +8,6 @@ import java.util.List;
 
 @Repository
 public interface StudentCourseRepository extends JpaRepository<StudentCourse, Long> {
-    @EntityGraph(attributePaths = {"course"})
+    @EntityGraph(attributePaths = StudentCourse_.COURSE)
     List<StudentCourse> findByStudent(Student student);
 }

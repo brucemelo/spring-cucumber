@@ -19,13 +19,15 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class StudentStepDefinitions {
+public class StudentSteps {
 
     private final StudentRepository studentRepository;
     private final StudentCourseRepository studentCourseRepository;
     private final StudentService studentService;
 
-    public StudentStepDefinitions(StudentRepository studentRepository, StudentCourseRepository studentCourseRepository, StudentService studentService) {
+    public StudentSteps(StudentRepository studentRepository,
+                        StudentCourseRepository studentCourseRepository,
+                        StudentService studentService) {
         this.studentRepository = studentRepository;
         this.studentCourseRepository = studentCourseRepository;
         this.studentService = studentService;
@@ -61,13 +63,6 @@ public class StudentStepDefinitions {
 
     @When("I search for a student with email {string}")
     public void iSearchForAStudentWithEmail(String email) {
-        List<Student> students = studentService.findAllStudents();
-        System.out.println("[DEBUG_LOG] Total students in DB: " + students.size());
-
-        for (Student s : students) {
-            System.out.println("[DEBUG_LOG] Student: " + s.getName() + ", Email: " + s.getEmail());
-        }
-
         Optional<Student> student = studentService.findStudentByEmail(email);
         foundStudent = student.orElse(null);
     }

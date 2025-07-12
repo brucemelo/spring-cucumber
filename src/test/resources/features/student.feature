@@ -5,9 +5,9 @@ Feature: Student Management
 
   Background:
     Given the following students exist:
-      | name          | email                  |
-      | John Doe      | john.doe@example.com   |
-      | Jane Smith    | jane.smith@example.com |
+      | name          | email                    |
+      | Bruce Melo    | bruce.melo@example.com   |
+      | Maria Souza   | maria.souza@example.com  |
 
   Scenario: Create a new student
     When I create a student with name "Bob Johnson" and email "bob.johnson@example.com"
@@ -15,9 +15,9 @@ Feature: Student Management
     And the student should have name "Bob Johnson"
 
   Scenario: Find student by email
-    When I search for a student with email "john.doe@example.com"
+    When I search for a student with email "bruce.melo@example.com"
     Then I should find a student
-    And the student should have name "John Doe"
+    And the student should have name "Bruce Melo"
 
   Scenario: Student not found
     When I search for a student with email "nonexistent@example.com"

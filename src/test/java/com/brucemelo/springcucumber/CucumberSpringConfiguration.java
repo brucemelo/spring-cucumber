@@ -1,4 +1,4 @@
-package com.brucemelo.springcucumber.config;
+package com.brucemelo.springcucumber;
 
 import io.cucumber.spring.CucumberContextConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
